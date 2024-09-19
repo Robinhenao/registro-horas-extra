@@ -17,12 +17,12 @@ export class ValidationService {
   }
 
   getErrorMessage(field: string, errors: any): string {
+    const fieldLabel = field === 'password' ? 'contraseña' : field === 'username' ? 'usuario' : field;
+
     if (errors['required']) {
-      return `El campo ${field} es requerido.`;
-    }
-    if (errors['minlength']) {
-      return `El campo ${field} debe tener al menos ${errors['minlength'].requiredLength} caracteres.`;
+      return `El campo ${fieldLabel} es obligatorio.`;
     }
     return '';
   }
+
 }
