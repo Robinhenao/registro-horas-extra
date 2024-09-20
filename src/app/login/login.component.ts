@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidationService } from './validation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,8 +35,21 @@ export class LoginComponent{
 
   onSubmit() {
     if (this.loginForm.valid) {
+      Swal.fire({
+        title: 'Inicio de sesión exitoso',
+        text: 'Has iniciado sesión correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
       console.log('Formulario enviado', this.loginForm.value);
-      // Aquí iría la lógica para enviar los datos al servidor
+      
+    } else {
+      Swal.fire({
+        title: 'Error',
+        text: 'El formulario no es válido, por favor revisa los campos.',
+        icon: 'error',
+        confirmButtonText: 'Reintentar'
+      });
     }
   }
 }
