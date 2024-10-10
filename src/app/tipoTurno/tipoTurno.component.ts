@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tipo-turno',
@@ -56,32 +57,40 @@ export class TipoTurnoComponent implements OnInit {
 
   formatearHora(event: any, controlName: string): void {
     let value = event.target.value.replace(/\D/g, '');
-    
+
     if (value.length > 4) {
       value = value.substr(0, 4);
     }
-    
+
     if (value.length >= 3) {
       const horas = value.substr(0, 2);
       const minutos = value.substr(2);
-      
+
       if (parseInt(horas) > 23) {
         value = '23' + minutos;
       }
       if (parseInt(minutos) > 59) {
         value = horas + '59';
       }
-      
+
       value = `${horas}:${minutos}`;
     }
-    
+
     this.registroForm.get(controlName)?.setValue(value);
   }
 
   onSubmit(): void {
     if (this.registroForm.valid) {
       //va conxion back
+
+      Swal.fire({
+        title: 'Registro tipo de turno.',
+        text: 'Has registrdo correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
       console.log(this.registroForm.value);
+      this.registroForm.reset();
     } else {
       this.marcarCamposComoTocados();
     }

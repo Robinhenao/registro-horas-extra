@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder,Validators, FormsModule, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -16,7 +17,7 @@ export class RegistroComponent implements OnInit {
   mensajeExito: string = '';
   mensajeError: string = '';
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -50,8 +51,14 @@ export class RegistroComponent implements OnInit {
     if (this.registroForm.valid) {
       //envio back
       console.log('Formulario enviado', this.registroForm.value);
-     
-      this.mensajeExito = 'Registro exitoso.';
+
+      Swal.fire({
+        title: 'Registro usuario exitoso.',
+        text: 'Has registrdo correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
+      this.registroForm.reset();
       this.mensajeError = '';
     } else {
       this.mensajeError = 'Por favor, corrige los errores en el formulario.';
@@ -59,5 +66,4 @@ export class RegistroComponent implements OnInit {
     }
   }
 
-  
 }
