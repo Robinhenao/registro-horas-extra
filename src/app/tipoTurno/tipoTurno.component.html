@@ -1,0 +1,78 @@
+<div class="login-container">
+  <div class="login-form-modern">
+    <h2>{{ modoEdicion ? 'Actualizar Registro' : 'Nuevo Registro' }}</h2>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          [class.error-input]="nombre?.invalid && nombre?.touched"
+          placeholder="Ingrese el nombre"
+        >
+        <div class="error-message" *ngIf="nombre?.invalid && nombre?.touched">
+          El nombre es obligatorio
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="horaInicio">Hora Inicio (formato 24h - HH:mm)</label>
+        <input
+          id="horaInicio"
+          type="text"
+          formControlName="horaInicio"
+          [class.error-input]="horaInicio?.invalid && horaInicio?.touched"
+          placeholder="00:00"
+          maxlength="5"
+          (input)="formatearHora($event, 'horaInicio')"
+        >
+        <div class="error-message" *ngIf="horaInicio?.invalid && horaInicio?.touched">
+          Ingrese una hora válida en formato 24h (00:00 - 23:59)
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="horaFin">Hora Fin (formato 24h - HH:mm)</label>
+        <input
+          id="horaFin"
+          type="text"
+          formControlName="horaFin"
+          [class.error-input]="horaFin?.invalid && horaFin?.touched"
+          placeholder="00:00"
+          maxlength="5"
+          (input)="formatearHora($event, 'horaFin')"
+        >
+        <div class="error-message" *ngIf="horaFin?.invalid && horaFin?.touched">
+          Ingrese una hora válida en formato 24h (00:00 - 23:59)
+        </div>
+        <div class="error-message" *ngIf="registroForm.errors?.['horaFinInvalida']">
+          La hora de fin debe ser posterior a la hora de inicio
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="multiplicador">Multiplicador</label>
+        <input
+          id="multiplicador"
+          type="number"
+          step="0.1"
+          formControlName="multiplicador"
+          [class.error-input]="multiplicador?.invalid && multiplicador?.touched"
+          placeholder="Ingrese el multiplicador"
+        >
+        <div class="error-message" *ngIf="multiplicador?.invalid && multiplicador?.touched">
+          <span *ngIf="multiplicador?.errors?.['required']">El multiplicador es obligatorio</span>
+          <span *ngIf="multiplicador?.errors?.['min']">El multiplicador debe ser mayor o igual a 0</span>
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="registroForm.invalid">
+        {{ modoEdicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </form>
+  </div>
+</div>
