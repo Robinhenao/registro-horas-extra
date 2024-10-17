@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TipoTurnoComponent } from './tipoTurno.component';
+import { MaestroTurnoComponent } from './maestroTurno.component';
 
-describe('TipoTurnoComponent', () => {
-  let component: TipoTurnoComponent;
-  let fixture: ComponentFixture<TipoTurnoComponent>;
+describe('MaestroTurnoComponent', () => {
+  let component: MaestroTurnoComponent;
+  let fixture: ComponentFixture<MaestroTurnoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TipoTurnoComponent]
+      imports: [MaestroTurnoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TipoTurnoComponent);
+    fixture = TestBed.createComponent(MaestroTurnoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

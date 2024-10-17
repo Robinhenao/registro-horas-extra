@@ -4,11 +4,11 @@
       <h2>Registro de Usuario</h2>
   
       <div class="form-group">
-        <label for="nombreCompleto">Nombre Completo:</label>
-        <input type="text" id="nombreCompleto" formControlName="nombreCompleto">
-        <div *ngIf="registroForm.get('nombreCompleto')?.invalid && registroForm.get('nombreCompleto')?.touched" class="mensaje-error">
-          <small *ngIf="registroForm.get('nombreCompleto')?.errors?.['required']">El nombre es requerido.</small>
-          <small *ngIf="registroForm.get('nombreCompleto')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+        <label for="name">Nombre Completo:</label>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="registroForm.get('name')?.invalid && registroForm.get('name')?.touched" class="mensaje-error">
+          <small *ngIf="registroForm.get('name')?.errors?.['required']">El nombre es requerido.</small>
+          <small *ngIf="registroForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
         </div>
       </div>
   

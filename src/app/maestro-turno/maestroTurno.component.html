@@ -2,7 +2,7 @@
   <div class="login-form-modern">
     <h2>{{ modoEdicion ? 'Actualizar Registro' : 'Nuevo Registro' }}</h2>
 
-    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="maestroTurnoForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="nombre">Nombre</label>
         <input
@@ -47,30 +47,15 @@
         <div class="error-message" *ngIf="horaFin?.invalid && horaFin?.touched">
           Ingrese una hora válida en formato 24h (00:00 - 23:59)
         </div>
-        <div class="error-message" *ngIf="registroForm.errors?.['horaFinInvalida']">
+        <div class="error-message" *ngIf="maestroTurnoForm.errors?.['horaFinInvalida']">
           La hora de fin debe ser posterior a la hora de inicio
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="multiplicador">Multiplicador</label>
-        <input
-          id="multiplicador"
-          type="number"
-          step="0.1"
-          formControlName="multiplicador"
-          [class.error-input]="multiplicador?.invalid && multiplicador?.touched"
-          placeholder="Ingrese el multiplicador"
-        >
-        <div class="error-message" *ngIf="multiplicador?.invalid && multiplicador?.touched">
-          <span *ngIf="multiplicador?.errors?.['required']">El multiplicador es obligatorio</span>
-          <span *ngIf="multiplicador?.errors?.['min']">El multiplicador debe ser mayor o igual a 0</span>
-        </div>
-      </div>
 
       <button 
         type="submit" 
-        [disabled]="registroForm.invalid">
+        [disabled]="maestroTurnoForm.invalid">
         {{ modoEdicion ? 'Actualizar' : 'Registrar' }}
       </button>
     </form>
