@@ -1,0 +1,83 @@
+<div class="container">
+  <h1 class="title">Programación de turnos</h1>
+  
+  <!-- Filter Section -->
+  <div class="filter-container">
+    <div class="date-filter">
+      <div class="form-group">
+        <label>Fecha inicio</label>
+        <input 
+          type="date" 
+          class="date-input"
+          [(ngModel)]="selectedStartDate"
+        >
+      </div>
+      <div class="form-group">
+        <label>Fecha fin</label>
+        <input 
+          type="date" 
+          class="date-input"
+          [(ngModel)]="selectedEndDate"
+        >
+      </div>
+    </div>
+
+    <!-- Search and Type Section -->
+    <div class="search-container">
+      <div class="search-group">
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Buscar ingeniero..."
+          [(ngModel)]="searchQuery" 
+          (input)="filterEngineers()"
+        >
+        <ul *ngIf="filteredEngineers.length > 0" class="suggestions-list">
+          <li *ngFor="let engineer of filteredEngineers" (click)="selectEngineer(engineer)">
+            {{ engineer?.name | lowercase}}
+          </li>
+        </ul>
+
+        <select class="turn-select" [(ngModel)]="selectedTurnTypeId">
+          <option *ngFor="let turn of turnTypes" [value]="turn.id">
+            {{turn.nombre}}
+          </option>
+        </select>
+      </div>
+      <button class="add-button" (click)="addShift()">
+        <i class="fas fa-plus"></i>
+        Agregar
+      </button>
+    </div>
+  </div>
+
+  <!-- Shifts Table -->
+  <table class="shifts-table">
+    <thead>
+      <tr>
+        <th>Ingeniero</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha fin</th>
+        <th>Turno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of schedules">
+        <td>{{schedule.engineer}}</td>
+        <td class="text-center">{{schedule.startDate}}</td>
+        <td class="text-center">{{schedule.endDate}}</td>
+        <td>{{schedule.shift}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="save-container">
+    <button 
+      class="save-button" 
+      (click)="saveShifts()"
+      [disabled]="userTurnos.length === 0"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

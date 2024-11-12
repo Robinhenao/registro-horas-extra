@@ -3,9 +3,11 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { MaestroHoraComponent } from './maestro-hora/maestroHora.component';
 import { MaestroTurnoComponent } from './maestro-turno/maestroTurno.component';
+import { ProgramarTurnoComponent } from './programar-turno/programar-turno.component';
 
 
 export const routes: Routes = [
+    { path: 'programarTurno', component: ProgramarTurnoComponent },
     { path: 'maestroTurno', component: MaestroTurnoComponent },
     { path: 'maestroHora', component: MaestroHoraComponent },
     { path: 'registro', component: RegistroComponent },
