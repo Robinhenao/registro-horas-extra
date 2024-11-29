@@ -1,0 +1,82 @@
+<div class="container">
+    <h1 class="title">Registrar Horas</h1>
+    
+    <form [formGroup]="registroHorasForm" (ngSubmit)="submitForm()">
+      <!-- Fecha de Inicio -->
+      <div class="form-group">
+        <label for="diaInicio">Fecha de Inicio</label>
+        <input
+          id="diaInicio"
+          type="date"
+          formControlName="diaInicio"
+          class="date-input"
+        />
+        <div *ngIf="registroHorasForm.get('diaInicio')?.invalid && registroHorasForm.get('diaInicio')?.touched" class="error">
+          La fecha de inicio es requerida.
+        </div>
+      </div>
+  
+      <!-- Hora de Inicio -->
+      <div class="form-group">
+        <label for="horaInicio">Hora de Inicio</label>
+        <input
+          id="horaInicio"
+          type="time"
+          formControlName="horaInicio"
+          class="date-input"
+        />
+        <div *ngIf="registroHorasForm.get('horaInicio')?.invalid && registroHorasForm.get('horaInicio')?.touched" class="error">
+          La hora de inicio es requerida.
+        </div>
+      </div>
+  
+      <!-- Hora de Fin -->
+      <div class="form-group">
+        <label for="horaFin">Hora de Fin</label>
+        <input
+          id="horaFin"
+          type="time"
+          formControlName="horaFin"
+          class="date-input"
+        />
+        <div *ngIf="registroHorasForm.get('horaFin')?.invalid && registroHorasForm.get('horaFin')?.touched" class="error">
+          La hora de fin es requerida.
+        </div>
+      </div>
+  
+      <!-- Nombre del Ticket -->
+      <div class="form-group">
+        <label for="ticketNombre">Nombre del Ticket</label>
+        <input
+          id="ticketNombre"
+          type="text"
+          formControlName="ticketNombre"
+          class="search-input"
+          placeholder="Ingrese el nombre del ticket"
+        />
+        <div *ngIf="registroHorasForm.get('ticketNombre')?.invalid && registroHorasForm.get('ticketNombre')?.touched" class="error">
+          El nombre del ticket es requerido y debe tener menos de 100 caracteres.
+        </div>
+      </div>
+  
+      <!-- Observaciones -->
+      <div class="form-group">
+        <label for="observacion">Observación</label>
+        <textarea
+          id="observacion"
+          formControlName="observacion"
+          class="search-input"
+          rows="4"
+          placeholder="Escriba alguna observación (opcional)"
+        ></textarea>
+      </div>
+  
+      <!-- Botón Guardar -->
+      <div class="save-container">
+        <button type="submit" class="save-button" [disabled]="registroHorasForm.invalid">
+          Guardar Registro
+        </button>
+      </div>
+    </form>
+  </div>
+  
