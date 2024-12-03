@@ -61,7 +61,7 @@
   button {
     width: 33.33%;
     padding: 0.85rem;
-    background-color: #007bff;
+    background-color: #007bff; /* Fondo siempre azul */
     color: white;
     border: none;
     border-radius: 8px;
@@ -71,17 +71,20 @@
     margin: 0 auto;
     display: block;
   
+    /* Hover: fondo azul oscuro */
     &:hover {
-      background-color: #0056b3;
+      background-color: #007bff; /* Mantiene el color azul */
       transform: translateY(-2px);
     }
   
+    /* Deshabilitado: mantiene el color azul */
     &:disabled {
-      background-color: #ccc;
+      background-color: #007bff; /* Fondo azul siempre */
       cursor: not-allowed;
       transform: none;
     }
   }
+  
   
   .error-message {
     color: #dc3545;

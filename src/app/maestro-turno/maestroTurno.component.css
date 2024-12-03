@@ -61,7 +61,7 @@
   button {
     width: 33.33%;
     padding: 0.85rem;
-    background-color: #007bff;
+    background-color: #007bff; /* Siempre azul */
     color: white;
     border: none;
     border-radius: 8px;
@@ -70,14 +70,16 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin: 0 auto;
     display: block;
-  
+    
+    /* Hover: solo cambia ligeramente el color */
     &:hover {
-      background-color: #0056b3;
+      background-color: #0056b3; /* Un tono más oscuro de azul */
       transform: translateY(-2px);
     }
   
+    /* Deshabilitado: mantener el fondo azul, pero un poco más claro */
     &:disabled {
-      background-color: #ccc;
+      background-color: #007bff; /* Fondo azul siempre */
       cursor: not-allowed;
       transform: none;
     }

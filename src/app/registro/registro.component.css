@@ -1,98 +1,112 @@
-/* registro.component.css */
+/* Contenedor del formulario */
 .registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #e9ecef;
-    padding: 20px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #c8cad1; /* Color gris de fondo */
+  padding: 20px;
+}
+
+/* Formulario */
+.registro-form-modern {
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los campos horizontalmente */
+}
+
+/* Títulos */
+h2 {
+  text-align: center;
+  color: #444;
+  font-family: "Arial", sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.25rem;
+  width: 100%; /* Mantiene el ancho completo */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los campos */
+}
+
+label {
+  margin-bottom: 0.4rem;
+  color: #666;
+  font-size: 0.95rem;
+  width: 90%; /* Mantiene alineado al ancho del input */
+  text-align: left; /* Alineación a la izquierda */
+}
+
+/* Campos de Entrada */
+input {
+  width: 90%; /* Ajusta el ancho del input */
+  padding: 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Botón */
+button {
+  width: auto;
+  padding: 0.6rem 1.5rem;
+  background-color: #007bff !important;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 1rem auto 0;
+  display: block; /* Centra el botón */
+}
+
+button:hover {
+  background-color: #0056b3 !important;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #007bff !important;
+  cursor: not-allowed;
+}
+
+/* Mensajes */
+.mensaje-error, .mensaje-exito {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  text-align: center;
+}
+
+.mensaje-error {
+  color: #dc3545;
+}
+
+.mensaje-exito {
+  color: #28a745;
+}
+
+/* Media Query para dispositivos pequeños */
+@media (max-width: 576px) {
   .registro-form-modern {
-    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 450px;
+    padding: 1.5rem;
+    max-width: 100%;
   }
-  
-  h2 {
-    text-align: center;
-    color: #444;
-    font-family: "Arial", sans-serif;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1.25rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.4rem;
-    color: #666;
-    font-size: 0.95rem;
-  }
-  
-  input {
-    width: 94%;
-    padding: 0.85rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
-    outline: none;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.85rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 1rem auto 0;
-    display: block;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-  }
-  
-  button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  .mensaje-error, .mensaje-exito {
-    font-size: 0.85rem;
-    margin-top: 0.35rem;
-    text-align: center;
-  }
-  
-  .mensaje-error {
-    color: #dc3545;
-  }
-  
-  .mensaje-exito {
-    color: #28a745;
-  }
-  
-  @media (max-width: 576px) {
-    .registro-form-modern {
-      padding: 1.5rem;
-      max-width: 100%;
-    }
-  }
+}

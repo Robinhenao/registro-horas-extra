@@ -1,58 +1,108 @@
-.login-container {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  background-color: #e9ecef;
+}
+
+.left-section {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px;
 }
 
+.left-section img {
+  width: 350px; /* Logo más grande */
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.left-section h1 {
+  color: #007bff; /* Azul igual al del botón */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.left-section p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.right-section {
+  flex: 1;
+  background-color: #c8cad1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-form-modern {
-  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
-  padding: 2.5rem;
+  background-color: white;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 450px;
+  max-width: 500px; /* Ajustado para un tamaño más amplio */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column; /* Para que los campos se alineen en columna */
+  align-items: center; /* Centra los campos horizontalmente */
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h2 {
   text-align: center;
-  color: #444;
-  font-family: "Arial", sans-serif;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.form-group {
-  margin-bottom: 1.25rem;
+  color: #003366;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: #666;
-  font-size: 0.95rem;
+  display: block; /* Los labels estarán en bloque, por encima de los inputs */
+  color: #495057;
+  font-size: 1rem;
+  margin-bottom: 8px; /* Espacio entre el label y el input */
+  text-align: left; /* Alineación a la izquierda */
+  width: 100%; /* Para que ocupe todo el ancho disponible */
 }
 
 input {
-  width: 94%;
-  padding: 0.85rem;
-  border: 1px solid #ddd;
+  width: 80%; /* Ajustado para hacer los inputs más cortos */
+  padding: 1rem;
+  margin-bottom: 20px; /* Aumentado el margen para más espacio entre los inputs */
   border-radius: 8px;
+  border: 1px solid #b0b3bb;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #e6e7ea;
+  text-align: center;
+}
+
+input::placeholder {
+  color: #7d7f86;
 }
 
 input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+  border-color: #4f83cc;
+  box-shadow: 0 0 8px rgba(79, 131, 204, 0.5);
   outline: none;
 }
 
 button {
-  width: 33.33%;
-  padding: 0.85rem;
+  width: auto;
+  padding: 0.8rem 1.5rem;
   background-color: #007bff;
   color: white;
   border: none;
@@ -60,19 +110,28 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin: 0 auto;
+  margin-top: 15px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
 }
 
-.error-message {
-  color: #dc3545;
-  font-size: 0.85rem;
-  margin-top: 0.35rem;
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 576px) {
